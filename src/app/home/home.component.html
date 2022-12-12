@@ -1,0 +1,26 @@
+<div class="table-wrapper scroll">
+  <div class="btn-div">
+    <button type="button" class="btn btn-primary" (click)="navigate()">Add Employee</button>
+  </div>
+  <table id="employees">
+    <tr>
+      <th>Employee Name</th>
+      <th>Role</th>
+      <th>Location</th>
+      <th>Email Id</th>
+      <th>Contact Number</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of data">
+      <td> {{item["name"]}}</td>
+      <td> {{item["profession"]}}</td>
+      <td> {{item["location"]}}</td>
+      <td> {{item["emailId"]}}</td>
+      <td> {{item["contact"]}}</td>
+
+      <td class="icon-cls" (click)="deleteEmployee(item)"><i class="fa fa-trash"></i></td>
+    </tr>
+
+  </table>
+
+</div>

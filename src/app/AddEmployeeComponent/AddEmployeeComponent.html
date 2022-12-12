@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div>
+    <span class="btn-breadcrum" (click)="navigateToDashboard()">
+      <<<< Back To Dashboard</span>
+  </div>
+
+
+</div>
+<div class="row form-group">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="first-name"><span style="color: red;">*</span>Employee Name</label>
+        <input id="first-name" type="text" formControlName="employeeName" required />
+
+        <span class="text-danger" *ngIf="
+          profileForm.get('employeeName')?.errors &&
+          profileForm.get('employeeName')?.hasError('required') && profileForm.get('employeeName')?.touched">Name
+          Required
+        </span>
+      </div>
+
+      <div class="col-md-6">
+        <label for="last-name"><span style="color: red;">*</span>Role </label>
+        <input id="last-name" type="text" formControlName="role" />
+
+        <span class="text-danger" *ngIf="
+        profileForm.get('role')?.errors &&
+        profileForm.get('role')?.hasError('required') && profileForm.get('role')?.touched">Role Required</span>
+      </div>
+
+      <div class="col-md-6">
+        <label><span style="color: red;">*</span>Email</label>
+        <input type="text" formControlName="email">
+        <span class="error-msg text-danger"
+          *ngIf="profileForm.get('email')?.hasError('required') && profileForm.get('email')?.touched">Email
+          required</span>
+
+        <span class="error-msg text-danger"
+          *ngIf="profileForm.get('email')?.hasError('email') && profileForm.get('email')?.touched">Invalid email</span>
+      </div>
+
+      <div class="col-md-6">
+        <label><span style="color: red;">*</span>Location</label>
+        <input type="text" formControlName="location">
+
+        <span class="error-msg text-danger"
+          *ngIf="profileForm.get('location')?.hasError('required') && profileForm.get('location')?.touched">Location
+          required</span>
+      </div>
+      <div class="col-md-6">
+        <label><span style="color: red;">*</span>Contact Number</label>
+        <input type="text" formControlName="contact">
+
+        <span class="error-msg text-danger"
+          *ngIf="profileForm.get('contact')?.hasError('required') && profileForm.get('contact')?.touched">Contact
+          required</span>
+        <span class="error-msg"
+          *ngIf="profileForm.get('contact')?.hasError('contact') && profileForm.get('contact')?.touched">Invalid
+          contact</span>
+      </div>
+
+      <div>
+        <button class="btn btn-success" type="submit" [disabled]="!profileForm.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>
