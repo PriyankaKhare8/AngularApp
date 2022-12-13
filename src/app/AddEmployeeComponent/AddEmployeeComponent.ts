@@ -44,7 +44,7 @@ export class AddEmployeeComponent implements OnInit {
       this.dataService.addEmployee(empData).subscribe(response => {
         if (response) {
           alert('Data added successfully');
-          this.empForm.reset();
+          this.profileForm.reset();
         }
       })
 
